@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other planets.">
+    <title>SpaceX</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <header class="navbar" id="navbar">
+        <a class="logo" href="#" aria-label="SpaceX">SPACEX</a>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="https://www.spacex.com/vehicles/starship/" target="_blank" rel="noopener">Vehicles</a></li>
+                <li><a href="https://www.spacex.com/humanspaceflight/" target="_blank" rel="noopener">Human Spaceflight</a></li>
+                <li><a href="https://www.starlink.com/" target="_blank" rel="noopener">Starlink</a></li>
+                <li><a href="https://www.starshield.com/" target="_blank" rel="noopener">Starshield</a></li>
+                <li><a href="https://x.ai/" target="_blank" rel="noopener">xAI</a></li>
+                <li><a href="https://www.spacex.com/terafab/" target="_blank" rel="noopener">Terafab</a></li>
+                <li><a href="https://www.spacex.com/company/" target="_blank" rel="noopener">Company</a></li>
+                <li><a href="https://shop.spacex.com/" target="_blank" rel="noopener">Shop</a></li>
+                <li class="nav-launches"><a href="https://www.spacex.com/launches/" target="_blank" rel="noopener">Upcoming Launches</a></li>
+            </ul>
+        </nav>
+        <button class="menu-icon" id="menuIcon" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-overlay" id="navOverlay"></div>
+    </header>
+
+    <main>
+        <!-- ============ SECTION 1 — HERO: STARSHIP'S TWELFTH FLIGHT TEST ============ -->
+        <section class="tile" id="flight-test">
+            <div class="bg-media">
+                <video class="bg-video" autoplay muted loop playsinline preload="auto"
+                       data-src-desktop="https://sxcontent9668.azureedge.us/cms-assets/assets/20260522_Starship_Flight12_web1920_v2_71d68b5ee9.mp4"
+                       data-src-mobile="https://sxcontent9668.azureedge.us/cms-assets/assets/20260522_Starship_Flight12_web1080_v2_4755b2a6e3.mp4">
+                </video>
+            </div>
+            <div class="tile-gradient gradient-bottom"></div>
+            <div class="tile-content align-left-bottom reveal">
+                <span class="tile-date">May 22, 2026</span>
+                <h1 class="tile-title">Starship's Twelfth Flight&nbsp;Test</h1>
+                <a class="btn" href="https://www.spacex.com/launches/" target="_blank" rel="noopener"><span>Watch</span></a>
+            </div>
+        </section>
+
+        <!-- ============ SECTION 2 — MAKING LIFE MULTIPLANETARY (Mars) ============ -->
+        <section class="tile" id="mars">
+            <div class="bg-media">
+                <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+                       poster="https://sxcontent9668.azureedge.us/cms-assets/assets/Mars_Web_8fafe15a48.jpg"
+                       data-src-desktop="https://sxcontent9668.azureedge.us/cms-assets/assets/Mars_Rotation_Web_HB_d96299f9de.mp4"
+                       data-src-mobile="https://sxcontent9668.azureedge.us/cms-assets/assets/Mobile_v4_HB_e1d2eda88f.mp4">
+                </video>
+            </div>
+            <div class="tile-content align-left-middle reveal">
+                <h2 class="tile-title">Making Life Multiplanetary</h2>
+                <p class="tile-description">SpaceX was founded under the belief that a future where humanity is out exploring the stars is fundamentally more exciting than one where we are not.</p>
+                <a class="btn" href="https://www.spacex.com/humanspaceflight/mars/" target="_blank" rel="noopener"><span>Explore</span></a>
+            </div>
+        </section>
+
+        <!-- ============ SECTION 3 — REVOLUTIONIZING SPACE TECHNOLOGY (Starship / Super Heavy catch) ============ -->
+        <section class="tile" id="starship">
+            <div class="bg-media">
+                <picture>
+                    <source media="(max-width: 599px)" srcset="https://sxcontent9668.azureedge.us/cms-assets/assets/Revolutionizing_Space_Tech_Mobile_45093b17b7.jpg">
+                    <img src="https://sxcontent9668.azureedge.us/cms-assets/assets/Revolutionizing_Space_Tech_Desktop_ec67ad03c2.jpg" alt="Super Heavy booster caught by the launch tower at sunrise" loading="lazy">
+                </picture>
+            </div>
+            <div class="tile-gradient gradient-right"></div>
+            <div class="tile-content align-right-top reveal">
+                <h2 class="tile-title">Revolutionizing Space Technology</h2>
+                <p class="tile-description">SpaceX&rsquo;s Starship spacecraft and Super Heavy rocket is a fully reusable transportation system designed to carry both crew and cargo to Earth orbit, the Moon, Mars, and beyond.</p>
+                <a class="btn" href="https://www.spacex.com/vehicles/starship/" target="_blank" rel="noopener"><span>Learn More</span></a>
+            </div>
+        </section>
+
+        <!-- ============ SECTION 4 — WORLD'S LEADING LAUNCH SERVICE PROVIDER (Falcon Heavy landing) ============ -->
+        <section class="tile" id="launches">
+            <div class="bg-media">
+                <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+                       poster="https://sxcontent9668.azureedge.us/cms-assets/assets/Leading_Launch_Service_Desktop_06a98ac534.jpg"
+                       data-src-desktop="https://sxcontent9668.azureedge.us/cms-assets/assets/Space_X_Falcon_Heavy_UAS_Landing_DESKTOP_compress_b4568daf9c_5e2026727a.mp4"
+                       data-src-mobile="https://sxcontent9668.azureedge.us/cms-assets/assets/Leading_Launch_Service_Mobile_02email_c06f4154a8.mp4">
+                </video>
+            </div>
+            <div class="tile-gradient gradient-left"></div>
+            <div class="tile-content align-left-top reveal">
+                <h2 class="tile-title">World's Leading Launch Service&nbsp;Provider</h2>
+                <p class="tile-description">SpaceX leads the world in launches with its reliable, reusable rockets and is developing the fully and rapidly reusable rockets necessary to transform humanity&rsquo;s ability to access space into something as routine as air travel.</p>
+                <a class="btn" href="https://www.spacex.com/rideshare/" target="_blank" rel="noopener"><span>Reserve Your Ride</span></a>
+            </div>
+        </section>
+
+        <!-- ============ SECTION 5 — ADVANCING HUMAN SPACEFLIGHT (Dragon astronaut) ============ -->
+        <section class="tile" id="human-spaceflight">
+            <div class="bg-media">
+                <picture>
+                    <source media="(max-width: 599px)" srcset="https://sxcontent9668.azureedge.us/cms-assets/assets/Advancing_Human_Spaceflight_Mobile_af242fde31.jpg">
+                    <img src="https://sxcontent9668.azureedge.us/cms-assets/assets/Advancing_Human_Spaceflight_Desktop_61c8ba1c67.jpg" alt="Astronaut in a SpaceX suit looking out a Dragon spacecraft window" loading="lazy">
+                </picture>
+            </div>
+            <div class="tile-gradient gradient-right"></div>
+            <div class="tile-content align-right-top reveal">
+                <h2 class="tile-title">Advancing Human Spaceflight</h2>
+                <p class="tile-description">Since returning human spaceflight capabilities to the United States in 2020, SpaceX is helping build a new era where not just hundreds of people, but thousands and ultimately millions will be able to explore space.</p>
+                <a class="btn" href="https://www.spacex.com/humanspaceflight/" target="_blank" rel="noopener"><span>Join a Mission</span></a>
+            </div>
+        </section>
+
+        <!-- ============ SECTION 6 — DELIVERING HIGH-SPEED INTERNET FROM SPACE (Starlink) ============ -->
+        <section class="tile" id="starlink">
+            <div class="bg-media">
+                <video class="bg-video" autoplay muted loop playsinline preload="metadata"
+                       poster="https://sxcontent9668.azureedge.us/cms-assets/assets/Delivering_Highspeed_Desktop_d50314640c.jpg"
+                       data-src-desktop="https://sxcontent9668.azureedge.us/cms-assets/assets/Starlink_12_10_20250428_Deploy_website_DESKTOP_14fe7e072c.mp4"
+                       data-src-mobile="https://sxcontent9668.azureedge.us/cms-assets/assets/Starlink_12_10_20250428_Deploy_website_MOBILE_02_6c0f367324.mp4">
+                </video>
+            </div>
+            <div class="tile-gradient gradient-bottom"></div>
+            <div class="tile-content align-left-middle reveal">
+                <h2 class="tile-title">Delivering High-Speed Internet From&nbsp;Space</h2>
+                <p class="tile-description">Starlink is the world&rsquo;s most advanced satellite constellation in low-Earth orbit, delivering reliable broadband internet capable of supporting streaming, online gaming, video calls, and more.</p>
+                <a class="btn" href="https://www.starlink.com/" target="_blank" rel="noopener"><span>Order Now</span></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="https://www.spacex.com/careers/" target="_blank" rel="noopener">Careers</a></li>
+            <li><a href="https://www.spacex.com/updates/" target="_blank" rel="noopener">Updates</a></li>
+            <li><a href="https://www.spacex.com/media/privacy_policy_spacex.pdf" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://www.spacex.com/supplier/" target="_blank" rel="noopener">Suppliers</a></li>
+            <li><a href="https://www.spacex.com/investors/" target="_blank" rel="noopener">Investors</a></li>
+        </ul>
+        <p class="footer-copyright">SpaceX &copy; 2026</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+/* ==========================================================================
+   SpaceX homepage replica — original CSS styled after spacex.com
+   ========================================================================== */
+
+@font-face {
+    font-family: 'D-DIN';
+    src: url('../assets/fonts/D-DIN.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'D-DIN-Bold';
+    src: url('../assets/fonts/D-DIN-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: block;
+}
+
+:root {
+    --white-100: rgba(240, 240, 250, 1);
+    --white-90: rgba(240, 240, 250, 0.9);
+    --white-70: rgba(240, 240, 250, 0.7);
+    --black: #000;
+    --content-pad: 3.75rem;
+    --nav-height: 4.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'D-DIN', Arial, Verdana, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: var(--black);
+    color: var(--white-100);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55) 0%, transparent 100%);
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-family: 'D-DIN-Bold', 'D-DIN', Arial, sans-serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    letter-spacing: 0.45em;
+    margin-right: -0.45em; /* offset trailing tracking */
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.9rem;
+}
+
+.nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+}
+
+.nav-links a:hover {
+    border-bottom-color: var(--white-100);
+}
+
+/* Hamburger */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.menu-icon span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    margin-left: 7px;
+    background: var(--white-100);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-icon.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.nav-overlay.active {
+    display: block;
+}
+
+/* ==========================================================================
+   Fullscreen tiles
+   ========================================================================== */
+
+.tile {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background-color: var(--black);
+}
+
+.bg-media,
+.bg-media picture {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.bg-media video,
+.bg-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Gradient overlays for text legibility — direction varies per tile,
+   matching spacex.com (right / left / bottom) */
+.tile-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.gradient-bottom {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 35%, transparent 60%);
+}
+
+.gradient-right {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 45%, transparent 70%);
+}
+
+.gradient-left {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 45%, transparent 70%);
+}
+
+/* Content block — positioned per tile like spacex.com's
+   inner-left-middle / inner-right-top / inner-left-top / bottom hero */
+.tile-content {
+    position: absolute;
+    z-index: 2;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.align-left-bottom {
+    left: var(--content-pad);
+    right: var(--content-pad);
+    bottom: 3.5rem;
+}
+
+.align-left-middle {
+    left: var(--content-pad);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.align-left-top {
+    left: var(--content-pad);
+    top: calc(var(--nav-height) + 4.5rem);
+}
+
+.align-right-top {
+    right: var(--content-pad);
+    top: calc(var(--nav-height) + 4.5rem);
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    translate: 0 36px;
+    transition: opacity 0.9s ease-out, translate 0.9s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.align-left-middle.reveal {
+    transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.tile-date {
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-90);
+    margin-bottom: 0.75rem;
+}
+
+.tile-title {
+    font-family: 'D-DIN-Bold', 'D-DIN', Arial, sans-serif;
+    font-size: clamp(1.9rem, 3.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-wrap: balance;
+}
+
+.tile-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--white-90);
+    margin-bottom: 1.75rem;
+    max-width: 500px;
+}
+
+/* ==========================================================================
+   Buttons — bordered, uppercase, invert on hover (spacex.com style)
+   ========================================================================== */
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    padding: 1rem 2.6rem;
+    border: 2px solid var(--white-100);
+    font-family: 'D-DIN-Bold', 'D-DIN', Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white-100);
+    background: transparent;
+    overflow: hidden;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn span {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Arrow slides in on hover, like the live site's link animation */
+.btn span::after {
+    content: '\2192';
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    margin-left: -0.9rem;
+    transition: opacity 0.3s ease, margin-left 0.3s ease;
+}
+
+.btn:hover span::after {
+    opacity: 1;
+    margin-left: 0;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--white-100);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    color: var(--black);
+}
+
+.btn:hover::before {
+    transform: scaleX(1);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+    background: var(--black);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-links a {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--white-70);
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white-100);
+    border-bottom-color: var(--white-100);
+}
+
+.footer-copyright {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white-70);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+    .navbar {
+        padding: 0 1.75rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -110%;
+        height: 100vh;
+        height: 100svh;
+        width: min(75%, 320px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 6rem 2.5rem 2rem;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        transition: right 0.35s ease;
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(240, 240, 250, 0.12);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1.1rem 0;
+        font-size: 0.9rem;
+        border-bottom: none;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --content-pad: 1.5rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        letter-spacing: 0.35em;
+        margin-right: -0.35em;
+    }
+
+    .tile-content,
+    .align-right-top {
+        left: var(--content-pad);
+        right: var(--content-pad);
+        max-width: none;
+    }
+
+    .align-left-top,
+    .align-right-top {
+        top: auto;
+        bottom: 4rem;
+    }
+
+    .align-left-middle {
+        top: auto;
+        bottom: 4rem;
+        transform: none;
+    }
+
+    .align-left-middle.reveal {
+        transform: none;
+    }
+
+    .tile-title {
+        font-size: clamp(1.6rem, 7.5vw, 2.2rem);
+    }
+
+    .tile-description {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        min-width: 170px;
+        padding: 0.9rem 2rem;
+        font-size: 0.78rem;
+    }
+
+    .footer-links {
+        gap: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        translate: 0 0;
+        transition: none;
+    }
+}
